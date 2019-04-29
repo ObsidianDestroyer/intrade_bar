@@ -14,7 +14,7 @@ class IntradeBarWorker(IntradeBarModel):
             'user_hash': self.user_hash,
             'option': self.option,
             'investment': self.investment,
-            'time': self.time,
+            'time': self.get_current_time(),
             'date': self.date,
             'trade_type': self.trade_type,
             'status': self.status
@@ -28,4 +28,4 @@ class IntradeBarWorker(IntradeBarModel):
 
             print(f'Created order with № {order_num.attr.id}')
         else:
-            raise ('Order create failed with following error:\n' + str(ConnectionError()))
+            raise ConnectionError(f'Failed to create an order: {r.text}')

@@ -18,8 +18,15 @@ class IntradeBarModel:
     def investment(self) -> str:
         return 95
 
-    @property
-    def time(self) -> str:
+    @staticmethod
+    def get_current_time(self, **offset: int) -> str:
+        """
+        Standart offset is 10 minutes from now
+        """
+        if offset:
+            return datetime.strftime((datetime.now() + timedelta(minutes=offset)), '%H:%M')
+
+        # default offset
         return datetime.strftime((datetime.now() + timedelta(minutes=10)), '%H:%M')
 
     @property
