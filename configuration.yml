@@ -1,0 +1,10 @@
+hostname: api-fxpractice.oanda.com
+streaming_hostname: stream-fxpractice.oanda.com
+port: 443
+ssl: true
+token: 3d4ba59b7125a5122543394bf07e8f47-6f1014e73a368100739caf597810dba1
+username: bashcoreWalther
+accounts:
+  - 101-004-9754838-001
+  - 101-004-9754838-002
+active_account: 101-004-9754838-001
