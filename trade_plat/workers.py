@@ -1,9 +1,12 @@
-import requests
+from requests_html import HTMLSession
 
 from src.classes.intrade_class import IntradeBarModel
+from utils.errors import OrderFailError
 
 
 class IntradeBarWorker(IntradeBarModel):
+    ses = HTMLSession()
+
     def __init__(self, url):
         self.url = url
         self.form_data = {
@@ -18,6 +21,11 @@ class IntradeBarWorker(IntradeBarModel):
         }
 
     def make_call_order(self):
-        r = requests.post(self.url, data=self.form_data)
+        r = self.ses.post(self.url, data=self.form_data)
+
         if len(r.text) > 1:
-            pass
+            order_num = r.html.element('tr')
+
+            print(f'Created order with № {order_num.attr.id}')
+        else:
+            raise ('Order create failed with following error:\n' + str(ConnectionError()))
