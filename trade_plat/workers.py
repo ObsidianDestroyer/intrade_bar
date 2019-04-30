@@ -1,6 +1,7 @@
 from requests_html import HTMLSession
 
-from src.classes.intrade_class import IntradeBarModel
+from src.classes.intrade_model import IntradeBarModel
+from src.params.configure import Config
 from utils.errors import OrderFailError
 
 
@@ -14,7 +15,7 @@ class IntradeBarWorker(IntradeBarModel):
             'user_hash': self.user_hash,
             'option': self.option,
             'investment': self.investment,
-            'time': self.get_current_time(),
+            'time': self.time,
             'date': self.date,
             'trade_type': self.trade_type,
             'status': self.status
