@@ -1,4 +1,6 @@
-class OrderFailError:
+class OrderFailError(Exception):
+    def __init__(self, *err):
+        self.err = err
 
     @property
     def err_text(self, err):
