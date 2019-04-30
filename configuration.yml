@@ -1,3 +1,10 @@
+
+platform_url: https://intrade.bar/ajax4.php
+user_id: 55603
+option: EUR_USD
+trade_type: classic
+
+
 hostname: api-fxpractice.oanda.com
 streaming_hostname: stream-fxpractice.oanda.com
 port: 443
