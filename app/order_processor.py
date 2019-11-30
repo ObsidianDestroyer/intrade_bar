@@ -32,6 +32,8 @@ def process_order(bid_set, platform_url):
     session = requests.Session()
     bid = session.post(platform_url, data=bid_set)
     bid_response = BS(bid.content.decode(), 'html.parser')
+    if bid.status_code == '200':
+        log.info(f'Bid id: {bid_response}')
 
     return
 

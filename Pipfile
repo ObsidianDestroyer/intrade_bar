@@ -10,6 +10,7 @@ bpython = "*"
 pyyaml = "*"
 colorlog = "==4.0.2"
 beautifulsoup4 = "*"
+sqlalchemy = "==1.3.10"
 
 [requires]
 python_version = "3.7"
